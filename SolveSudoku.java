@@ -4,8 +4,7 @@ import java.io.IOException;
 public class SolveSudoku {
 
 	public static void main(String[] args) throws IOException, CloneNotSupportedException {
-		//String file = args[0];
-		String file = "C:\\Users\\jacques\\Documents\\block3.csv";
+		String file = args[0];
 		SudokuBlock block = new SudokuBlock(file);
 		ConstraintSolver solver = new ConstraintSolver(block);
 		long t1 = System.currentTimeMillis();
