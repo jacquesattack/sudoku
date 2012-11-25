@@ -51,12 +51,13 @@ public class DLListConstructor {
 		 * set header
 		 */
 		DLNode right = (DLNode) ((HashMap) nodes.get(-1)).get(0);
-		DLNode left = (DLNode) ((HashMap) nodes.get(-1)).get(728);
+		DLNode left = (DLNode) ((HashMap) nodes.get(-1)).get(323);
 		DLNode root = new DLNode(-1,-1);
+		right.setLeft(root);
+		left.setRight(root);
 		root.setRight(right);
 		root.setLeft(left);
-		root.getRight().getRight().print();
-		root.getRight().getRight().getRight().getDown().print();
+		root.getRight().getLeft().print();
 		return root;
 	}
 
