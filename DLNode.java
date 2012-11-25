@@ -8,14 +8,28 @@ public class DLNode {
 	private DLNode left;
 	private DLNode header;
 	
-	public DLNode()
+	private int x;
+	private int y;
+	
+	public DLNode(int newx, int newy)
 	{
-		
+		setX(newx);
+		setY(newy);
 	}
 	
 	/*
 	 * getters
 	 */
+	
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
+	}
 	
 	public DLNode getUp()
 	{
@@ -45,6 +59,16 @@ public class DLNode {
 	/*
 	 * setters
 	 */
+	
+	public void setX(int newx)
+	{
+		x = newx;
+	}
+	
+	public void setY(int newy)
+	{
+		y = newy;
+	}
 	
 	public void setUp(DLNode node)
 	{
@@ -84,6 +108,15 @@ public class DLNode {
 	{
 		this.getRight().setLeft(this);
 		this.getLeft().setRight(this);
+	}
+	
+	/*
+	 * print method
+	 */
+	
+	public void print()
+	{
+		System.out.println("x = " + x + ", y = " + y);
 	}
 	
 }

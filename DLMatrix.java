@@ -5,17 +5,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DLMatrixConstructor {
+public class DLMatrix{
 	
 	public static void main(String args[]) throws IOException
 	{
 		//String file = args[0];
 		//SudokuBlock newBlock = new SudokuBlock(file);
-		String output = args[0];
-		createMatrix(output);
+		//String output = args[0];
+		createMatrix();
 	}
 	
-	public static int[][] createMatrix(String output)
+	public static int[][] createMatrix()
 	{
 		int[][] matrix = new int[729][324];
 		for (int value = 0; value < 9; value++)
@@ -46,7 +46,7 @@ public class DLMatrixConstructor {
 			}
 		}
 		//matrix = deleteKnownConstraints(block,matrix);
-		printMatrix(matrix,output);
+		//printMatrix(matrix,output);
 		return matrix;
 	}
 
