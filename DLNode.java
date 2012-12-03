@@ -99,15 +99,28 @@ public class DLNode {
 	 * cover and uncover
 	 */
 	
-	public void cover()
+	public void sideCover()
 	{
 		this.getRight().setLeft(this.getLeft());
+		this.getLeft().setRight(this.getRight());
 	}
 	
-	public void uncover()
+	public void sideUncover()
 	{
 		this.getRight().setLeft(this);
 		this.getLeft().setRight(this);
+	}
+	
+	public void upDownCover()
+	{
+		this.getUp().setDown(this.getDown());
+		this.getDown().setUp(this.getUp());
+	}
+	
+	public void upDownUncover()
+	{
+		this.getUp().setDown(this);
+		this.getDown().setUp(this);
 	}
 	
 	/*
