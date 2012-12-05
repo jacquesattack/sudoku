@@ -162,9 +162,12 @@ public class DLListConstructor {
 		colData.put(-1, new ArrayList<Integer>());
 		((ArrayList<Integer>)rowData.get(-1)).add(-1);
 		((ArrayList<Integer>)colData.get(-1)).add(-1);
-		//int[][] matrix = DLMatrix.createMatrix();
+		int[][] matrix = DLMatrix.createMatrix();
 		//int[][] matrix = {{0,1,0,1}, {1,1,0,0}, {0,0,1,1}, {1,0,0,1}};
-		int[][] matrix = {{1,0,0},{0,1,0},{1,1,0},{0,1,1},{0,0,1}};
+		//int[][] matrix = {{0,1,0},{1,0,0},{1,1,0},{0,1,1},{0,0,1}};
+		//int[][] matrix = {{1,0,0}};
+		//int[][] matrix = {{1,0,0},{1,0,0},{1,1,0},{1,0,1},{0,0,1}};
+		//int[][] matrix = {{0,1,1,0,1,0}, {1,1,1,0,0,0}, {0,1,0,1,1,0}, {1,1,0,0,0,1}, {0,0,1,0,1,0}, {1,0,1,0,0,1}};
 		rowcount = matrix.length;
 		colcount = matrix[0].length;
 		for(int i = 0; i < matrix[0].length; i ++)

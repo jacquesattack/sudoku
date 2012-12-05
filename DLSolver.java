@@ -11,7 +11,10 @@ public class DLSolver {
 	public static void main(String args[])
 	{
 		DLSolver solver = new DLSolver();
+		long t1 = System.currentTimeMillis();
 		solver.solve();
+		long t2 = System.currentTimeMillis();
+		System.out.println("Total time: " + (t2-t1) + "ms");
 	}
 	
 	public DLSolver()
@@ -59,36 +62,47 @@ public class DLSolver {
 	 */
 
 	private void recurse(DLNode node) {
-		solutions.add(node.getX());
-		//System.out.println("Recursing on:");
 		//node.print();
+		solutions.add(node.getX());
 		coverAll(node);
-		DLNode right = root.getRight();
-		/*
-		 * if right.getDown() == right, then we have to uncover all and 
-		 * set node = root.getRight().getDown().getDown();
-		 */
-		if(right != root)
+		if(solved()) return;
+		if (hasNext()) {
+			recurse(next());
+		} else {
+			solutions.remove(node.getX());
+			uncoverAll(node);
+		}
+		
+		if(!solved())
 		{
-			//right.print();
-			//right.getDown().print();
-			//System.out.println();
-			if(right.getDown() == right)
+			uncoverAll(node);
+			solutions.remove(node.getX());
+			if(hasDown(node))
 			{
-				uncoverAll(node);
-				recurse(right.getDown());
-			}
-			else
-			{
-				recurse(root.getRight().getDown());
+				recurse(node.getDown());
 			}
 		}
-		else
-		{
-			/*
-			 * print solution
-			 */
-		}
+
+	}
+
+	private boolean hasDown(DLNode node) {
+		return node.getDown().getX() != -1;
+	}
+
+	private boolean solved() {
+		return root.getRight() == root;
+	}
+
+	private DLNode next() {
+		DLNode next = root.getRight().getDown();
+		return next;
+	}
+
+	private boolean hasNext() {
+		boolean hasNext = false;
+		if(root.getRight() != root && root.getRight().getDown() != root.getRight()) 
+			hasNext = true;
+		return hasNext;
 	}
 
 	//TODO
